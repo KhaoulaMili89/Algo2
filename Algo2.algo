@@ -1,0 +1,28 @@
+ALGORITHM SUMELEM
+VAR
+Tab1 : ARRAy_OF INTEGER[];
+Tab2 : ARRAy_OF INTEGER[];
+i,j : INTEGER;
+SUMEg, SUMD : INTEGER:= 0;
+BEGIN
+
+FOR i FROM 0 to Tab1.length-1 STEP 1 DO
+read(Tab1[i]);
+END_FOR
+FOR j FROM 0 to Tab2.length-1 STEP 1 DO
+read(Tab2[j]);
+END_FOR
+
+FOR i FROM 0 to Tab1.length-1 STEP 1 DO
+FOR j FROM 0 to Tab2.length-1 STEP 1 DO
+IF (Tab1[i] == Tab2[j]) THEN
+SUMEg:= SUMEg + Tab1[i];
+ELSE 
+SUMD:=SUMD + Tab1[i]+Tab2[j];
+END_IF
+END_FOR
+END_FOR
+
+write("la somme des éléments égaux sont ",SUMEg);
+write("la somme des éléments distincts sont ",SUMD);
+END
