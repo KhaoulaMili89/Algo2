@@ -1,0 +1,48 @@
+ALGORITHM SUMELEM
+VAR
+Tab1 : ARRAy_OF INTEGER[];
+Tab2 : ARRAy_OF INTEGER[];
+N,N1,i,j : INTEGER;
+SUMEg, SUMD : INTEGER:= 0;
+found:BOOLEAN;
+BEGIN
+/**Remplissage Tableaux**/
+read(N);
+FOR i FROM 0 to N-1 STEP 1 DO
+read(Tab1[i]);
+END_FOR
+read(N1);
+FOR j FROM 0 to N1-1 STEP 1 DO
+read(Tab2[j]);
+END_FOR
+/**SumNombreEgaux**/
+FOR i FROM 0 to N-1 STEP 1 DO
+FOR j FROM 0 to N1-1 STEP 1 DO
+repeat
+IF (Tab1[i] == Tab2[j]) THEN
+SUMEg:= SUMEg + Tab1[i]*2;
+found:= TRUE;
+break;
+END_FOR
+ELSE
+found:= FALSE;
+END_IF
+UNTIL (found=true)
+END_FOR
+/**SumNombreDistincts**/
+FOR i FROM 0 to N-1 STEP 1 DO
+FOR j FROM 0 to N1-1 STEP 1 DO
+IF (Tab1[i] != Tab2[j]) THEN
+SUMD:=SUMD + Tab1[i]+Tab2[j];
+found:=TRUE;
+break;
+ELSE
+found:= FALSE;
+END_IF
+UNTIL (found=true)
+END_FOR
+END_FOR
+
+write("la somme des éléments égaux sont ",SUMEg);
+write("la somme des éléments distincts sont ",SUMD);
+END
